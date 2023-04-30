@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Resolver, Query } from '@nestjs/graphql';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Query(() => String)
+  async hello() {
+    return 'Hello, world!';
   }
 }
