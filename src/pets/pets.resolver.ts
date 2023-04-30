@@ -13,7 +13,9 @@ export class PetsResolver {
   }
 
   @Mutation((returns) => Pet)
-  async createPet(@Args('createMutation') createPetDto): Promise<Pet> {
+  async createPet(
+    @Args('createMutation') createPetDto: createPetDto,
+  ): Promise<Pet> {
     return await this.petService.createPet(createPetDto);
   }
 }
