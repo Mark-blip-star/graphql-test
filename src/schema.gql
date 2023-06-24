@@ -2,19 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Pet {
-  id: Int!
-  name: String!
-}
-
 type Query {
-  pets: [Pet!]!
+  getUserById(_id: String!): UserEntity!
 }
 
-type Mutation {
-  createPet(createMutation: createPetDto!): Pet!
-}
-
-input createPetDto {
-  name: String!
+type UserEntity {
+  _id: String
+  name: String
+  post: [String!]
 }
